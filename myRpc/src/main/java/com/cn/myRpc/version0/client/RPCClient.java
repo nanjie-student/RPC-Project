@@ -8,23 +8,27 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Random;
 
+/*
+*
+* Client建立socket连接，传输ID给Server，得到的返回user对象*/
 public class RPCClient {
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
+        //建立Socket连接
+        Socket socket = null;
         try {
-            // 建立Socket连接
-            Socket socket = new Socket("127.0.0.1", 8899);
+            socket = new Socket("127.0.0.1",8899);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
-            // 传给服务器id
+            //传给Server端Id
             objectOutputStream.writeInt(new Random().nextInt());
             objectOutputStream.flush();
-            // 服务器查询数据，返回对应的对象
-            User user  = (User) objectInputStream.readObject();
-            System.out.println("服务端返回的User:"+user);
-
+            //Server search data,return 对应的对象
+            User user = (User)objectInputStream.readObject();
+            System.out.println("服务器端返回的User object:" + user);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
             System.out.println("客户端启动失败");
         }
+
     }
 }

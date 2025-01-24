@@ -9,11 +9,13 @@ import java.io.Serializable;
 
 @Builder
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class User implements Serializable {
-
+@AllArgsConstructor
+public class User implements Serializable{
+    //field: Client and Server
     private Integer id;
     private String username;
     private Boolean sex;
+
+
 }
