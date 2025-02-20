@@ -23,7 +23,7 @@
         <module name="version0" />
         <module name="version1" />
       </profile>
-      <profile name="Annotation profile for version2" enabled="true">
+      <profile name="Annotation profile for version3" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -31,6 +31,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
         <module name="version2" />
+        <module name="version3" />
       </profile>
     </annotationProcessing>
   </component>
@@ -40,6 +41,7 @@
       <module name="version0" options="-parameters" />
       <module name="version1" options="-parameters" />
       <module name="version2" options="-parameters" />
+      <module name="version3" options="-parameters" />
     </option>
   </component>
 </project>
