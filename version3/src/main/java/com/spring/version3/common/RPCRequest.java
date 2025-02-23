@@ -1,9 +1,11 @@
 package com.spring.version3.common;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * 在上个例子中，我们的Request仅仅只发送了一个id参数过去，这显然是不合理的，
@@ -13,6 +15,7 @@ import java.io.Serializable;
  */
 @Data
 @Builder
+@AllArgsConstructor
 public class RPCRequest implements Serializable {
     //服务器类名
     private String interfaceName;
@@ -23,4 +26,14 @@ public class RPCRequest implements Serializable {
     private Object[] params;
     //参数类型
     private Class<?>[] paramTypes;
+
+    @Override
+    public String toString() {
+        return "RPCRequest{" +
+                "interfaceName='" + interfaceName + '\'' +
+                ", methodName='" + methodName + '\'' +
+                ", params=" + Arrays.toString(params) +
+                ", paramTypes=" + Arrays.toString(paramTypes) +
+                '}';
+    }
 }

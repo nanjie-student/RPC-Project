@@ -25,6 +25,11 @@ public class NettyRPCServerHandler extends SimpleChannelInboundHandler<RPCReques
         channelHandlerContext.writeAndFlush(rpcResponse);
         channelHandlerContext.close();
     }
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        cause.printStackTrace();
+        ctx.close();
+    }
 
     RPCResponse getResponse(RPCRequest request) {
         //1.得到服务名
